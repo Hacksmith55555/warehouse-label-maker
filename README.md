@@ -1,0 +1,1 @@
+Instructons: Download the file then go and click on it and open it in your browser or VS-Code live viewer. Then fill in the blanks with the info you need click preview to preview it and ctrl + p to open the print page to print the paper.
