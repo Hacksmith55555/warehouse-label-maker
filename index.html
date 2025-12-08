@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <title>Warehouse Label Maker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            padding-top: 250px;
+            justify-content: center;
+
+        }
+
+         #label_preview {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            width: 250px; /* preview size on screen */
+            text-align: left;
+            font-size: 14px;
+            margin: 10px;
+        }
+
+        input {
+            margin-bottom: 5px;
+        }
+
+        .color-name {
+            font-weight: bold;
+            font-size: 24px; /* preview size */
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+/* Print styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #label_preview, #label_preview * {
+                visibility: visible;
+            }
+
+            #label_preview {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                text-align: center;
+                border: none;
+                font-size: 48px; /* base font size for other fields */
+            }
+
+            /* Make color name huge when printing */
+            #label_preview .color-name {
+                font-size: 100px !important; /* override inline / base styles */
+            }
+}
+    </style>
+
+    <form>
+        <label for="color_name">Color name:</label><br>
+        <input type="text" id="color_name" name="color_name"><br>
+        <label for="article_no">Article No.:</label><br>
+        <input type="text" id="article_no" name="article_no"><br>
+        <label for="color_no">Color No.:</label><br>
+        <input type="text" id="color_no" name="color_no"><br>
+        <label for="size">Size:</label><br>
+        <input type="text" id="size" name="size"><br>
+        <label for="pieces">Pieces:</label><br>
+        <input type="text" id="pieces" name="pieces"><br>
+        <label for="sq_ft">Sq Ft/ctn:</label><br>
+        <input type="text" id="sq_ft" name="sq_ft"><br>
+        <label for="lot_no">Lot no.:</label><br>
+        <input type="text" id="lot_no" name="lot_no"><br>
+
+        <button type="button" onclick="generateLabel()">Generate Label</button>
+    </form>
+
+    <div id="label_preview">
+        <!-- label will appear here-->
+    </div>
+    
+    <script>
+        function generateLabel(){
+            let color_name = document.getElementById("color_name").value;
+            let article = document.getElementById("article_no").value;
+            let color = document.getElementById("color_no").value;
+            let size = document.getElementById("size").value;
+            let pieces = document.getElementById("pieces").value;
+            let sq_ft = document.getElementById('sq_ft').value;
+            let lot = document.getElementById("lot_no").value;
+
+            let labelString =
+                `<div class="color-name">${color_name}</div>` +
+                "Article No.: " + article + "<br>" +
+                "Color No.: " + color + "<br>" +
+                "Size: " + size + "<br>" +
+                "Pieces: " + pieces + "<br>" +
+                "Sq Ft/ctn: " + sq_ft + "<br>" +
+                "Lot No.: " + lot;
+
+            document.getElementById("label_preview").innerHTML = labelString
+        }
+    </script>
+
+</body>
+</html>
