@@ -2,13 +2,15 @@
 <html>
 <body>
     <title>Warehouse Label Maker</title>
+    
+
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            padding-top: 250px;
+            padding-top: 100px;
             justify-content: center;
-
+            background-color: rgb(19, 52, 96);
         }
 
          #label_preview {
@@ -30,6 +32,21 @@
             font-size: 24px; /* preview size */
             text-align: center;
             margin-bottom: 10px;
+        }
+
+        .form{
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: rgb(0, 0, 0);
+            background-color: rgba(226, 213, 22, 0.806);
+            outline-style: solid;
+            outline-width: 4px;
+            outline-color:rgba(22, 114, 226, 0.991);
+        }
+
+        .buttons input,button{
+            background-color: rgb(54, 122, 219);
         }
 
 /* Print styles */
@@ -59,7 +76,7 @@
             }
 }
     </style>
-
+<div class="form">
     <form>
         <label for="code">WF*Code*</label><br>
         <input type="text" id="code" name="code"><br>
@@ -76,8 +93,12 @@
         <label for="lot_no">Lot no.:</label><br>
         <input type="text" id="lot_no" name="lot_no"><br>
 
+    <div class="buttons">
         <button type="button" onclick="generateLabel()">Generate Label</button>
+        <input type="button" value="Print this page" onClick="window.print()">
+    </div>
     </form>
+</div>
 
     <div id="label_preview">
         <!-- label will appear here-->
