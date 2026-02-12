@@ -61,10 +61,10 @@
     </style>
 
     <form>
-        <label for="color_name">Color name:</label><br>
-        <input type="text" id="color_name" name="color_name"><br>
-        <label for="article_no">Article No.:</label><br>
-        <input type="text" id="article_no" name="article_no"><br>
+        <label for="code">WF*Code*</label><br>
+        <input type="text" id="code" name="code"><br>
+        <label for="article_no">Customer Name:</label><br>
+        <input type="text" id="cust_name" name="cust_name"><br>
         <label for="color_no">Color No.:</label><br>
         <input type="text" id="color_no" name="color_no"><br>
         <label for="size">Size:</label><br>
@@ -85,8 +85,8 @@
     
     <script>
         function generateLabel(){
-            let color_name = document.getElementById("color_name").value;
-            let article = document.getElementById("article_no").value;
+            let code = document.getElementById("code").value;
+            let cust_name = document.getElementById("cust_name").value;
             let color = document.getElementById("color_no").value;
             let size = document.getElementById("size").value;
             let pieces = document.getElementById("pieces").value;
@@ -94,8 +94,8 @@
             let lot = document.getElementById("lot_no").value;
 
             let labelString =
-                `<div class="color-name">${color_name}</div>` +
-                "Article No.: " + article + "<br>" +
+                `<div class="color-name">${code}</div>` +
+                "Customer: " + cust_name + "<br>" +
                 "Color No.: " + color + "<br>" +
                 "Size: " + size + "<br>" +
                 "Pieces: " + pieces + "<br>" +
